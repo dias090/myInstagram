@@ -32,7 +32,8 @@ const Signup = () => {
           await setDoc(doc(db, "Users", user.uid), {
             name: name,
             userName: username,
-            email: email
+            email: email,
+            darkTheme: true,
           });
         }
         setError("");
