@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --bg_color: black;
+    --text_color: white;
+}
+
+[data-theme="dark"]{
+    --bg_color: black;
+    --text_color: white;
+}
+
+[data-theme="white"]{
+    --bg_color: white;
+    --text_color: black;
+}
+
+h1,h2,h3,h4,h5,h6{margin: 0px;}

@@ -1,0 +1,52 @@
+.Signin_container {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--bg_color);
+    color: var(--text_color);
+    display: flex;
+    align-items: center;
+
+    .col {
+        border: 1px solid #dbdbdb;
+        margin: 10px 0px;
+        padding: 10px 15px !important;
+    }
+
+    .logo_text {
+        display: block;
+        font-family: 'Dancing Script', cursive;
+        font-weight: 900;
+        text-decoration: none;
+        color: var(--text_color);
+        font-size: 50px;
+        text-shadow: 0px 0px 1px #000;
+        text-align: center;
+    } 
+
+    .input-field {
+        width: 80%;
+        margin: 10px auto;
+        display: flex;
+
+        input {
+            width: 100%;
+            border: 1px solid #dbdbdb;
+            background-color: #fafafa;
+            outline: none;
+            padding: 9px 8px 7px;
+            margin-left: 0px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            border: 1px solid #dbdbdb;
+            background-color: #4cb5f9;
+            color: white;
+            border-radius: 10px;
+            font-size: 17px;
+            padding: 9px 8px 7px;
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+    }
+}
