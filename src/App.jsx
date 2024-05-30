@@ -35,6 +35,7 @@ function App() {
 
   const fetchUserData = async (userId) => {
     try {
+      setIsLoading(true);
       const userDocRef = doc(db, "Users", userId);
       const userDocSnap = await getDoc(userDocRef);
 
@@ -75,11 +76,11 @@ function App() {
   }, []);
 
   const changeTheme = async () => {
+    setIsLoading(true);
     const userId = auth.currentUser?.uid;
 
     if (userId) {
       try {
-        setIsLoading(true);
         const userDocRef = doc(db, "Users", userId);
         await setDoc(userDocRef, { darkTheme: !darkTheme }, { merge: true });
         setDarkTheme(!darkTheme);
@@ -89,6 +90,7 @@ function App() {
         alert(`An error occurred: ${error.message}`);
       }
     }
+    setIsLoading(false);
   };
 
   if (isLoading) {

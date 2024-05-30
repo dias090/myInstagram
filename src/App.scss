@@ -35,6 +35,7 @@ i {
     --button_color: white;
     --button_text_color: black;
     --card_shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.12), 0 1px 5px 0 rgba(255, 255, 255, 0.2);
+    --second_loader: linear-gradient(0deg ,rgba(255, 255, 255, 0.5) 30%,#ffffff00 0 70%,rgb(255, 255, 255) 0) 50%/8% 100%, linear-gradient(90deg,rgba(255, 255, 255, 0.25) 30%,#ffffff00 0 70%,rgba(255, 255, 255, 0.75) 0) 50%/100% 8%;
 }
 
 [data-theme="white"]{
@@ -44,6 +45,7 @@ i {
     --button_color: black;
     --button_text_color: white;
     --card_shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    --second_loader:linear-gradient(0deg ,rgb(0 0 0/50%) 30%,#0000 0 70%,rgb(0 0 0/100%) 0) 50%/8% 100%,linear-gradient(90deg,rgb(0 0 0/25%) 30%,#0000 0 70%,rgb(0 0 0/75% ) 0) 50%/100% 8%;
 }
 
 h1,h2,h3,h4,h5,h6{margin: 0px;}
