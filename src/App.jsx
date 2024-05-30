@@ -35,7 +35,6 @@ function App() {
 
   const fetchUserData = async (userId) => {
     try {
-      setIsLoading(true);
       const userDocRef = doc(db, "Users", userId);
       const userDocSnap = await getDoc(userDocRef);
 
@@ -45,12 +44,9 @@ function App() {
       } else {
         console.log("User document does not exist.");
       }
-      setIsLoading(false);
     } catch (error) {
       console.log(error.message);
-    } finally {
-      setIsLoading(false);
-    }
+    } 
   };
 
   useEffect(() => {
@@ -76,11 +72,11 @@ function App() {
   }, []);
 
   const changeTheme = async () => {
-    setIsLoading(true);
     const userId = auth.currentUser?.uid;
-
+    
     if (userId) {
       try {
+        setIsLoading(true);
         const userDocRef = doc(db, "Users", userId);
         await setDoc(userDocRef, { darkTheme: !darkTheme }, { merge: true });
         setDarkTheme(!darkTheme);
