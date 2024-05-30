@@ -22,8 +22,8 @@ const AddPost = ({addCard, toggleAddCard, setIsLoading}) => {
   }, [img]);
 
   const sendData = async (e) => {
-    e.preventDefault();
     setIsLoading(true);
+    e.preventDefault();
     try {
       const storage = getStorage();
       const storageRef = ref(storage, "posts/" + img.name);
@@ -42,9 +42,9 @@ const AddPost = ({addCard, toggleAddCard, setIsLoading}) => {
         createdAt: serverTimestamp(),
       });
 
+      toggleAddCard();
       setComment("");
       setImg("");
-      toggleAddCard();
       setIsLoading(false);
     } catch (error) {
       console.log(error);

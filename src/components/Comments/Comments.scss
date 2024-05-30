@@ -32,6 +32,10 @@
             flex-direction: column;
             position: relative;
 
+            p:nth-child(1) {
+                color: black;
+            }
+
             .button {
                 display: none;
             }

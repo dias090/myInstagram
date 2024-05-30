@@ -12,7 +12,7 @@ import UserCard from "../UserCard/UserCard";
 import "./Posts.scss";
 import Comments from "../Comments/Comments";
 
-const Posts = ({ post, toggleComments, comments }) => {
+const Posts = ({ post, toggleComments, comments, setIsLoading }) => {
   const [author, setAuthor] = useState(null);
   const currentUser = auth.currentUser.uid;
   const [isLiked, setIsLiked] = useState(false);
@@ -110,9 +110,10 @@ const Posts = ({ post, toggleComments, comments }) => {
               placeholder="Comment"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
+              style={{color:"var(--text_color)"}}
             />
             <button type="submit" className="submit_button">
-              <i className="material-icons">comment</i>
+              <i className="material-icons" style={{color:"var(--text_color)"}}>comment</i>
             </button>
           </form>
         </div>

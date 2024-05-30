@@ -47,11 +47,12 @@ const Mainpage = ({
 
   useEffect(() => {
     const fetchPosts = async () => {
+      setIsLoading(true);
       if (!currentUser) {
         setPosts([]);
         return;
       }
-
+      
       try {
         const userDocRef = doc(db, "Users", currentUser.uid);
         const userDoc = await getDoc(userDocRef);
@@ -73,15 +74,15 @@ const Mainpage = ({
         } else {
           setPosts([]);
         }
-        setIsLoading(false);
       } catch (error) {
-        setIsLoading(false);
         console.error("Error fetching posts: ", error);
       }
     };
-
-    setIsLoading(false);
-    fetchPosts();
+    try{
+      fetchPosts();
+    }finally{
+      setIsLoading(false);
+    }
   }, [currentUser, setIsLoading]);
 
   return (
@@ -104,6 +105,7 @@ const Mainpage = ({
               post={post}
               toggleComments={() => toggleComments(post.id)}
               comments={comments[post.id]}
+              setIsLoading={setIsLoading}
             />
         ))}
       </div>
