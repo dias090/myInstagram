@@ -3,6 +3,7 @@ import { db } from "../../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import "./UsersComments.scss";
 import { Link } from "react-router-dom";
+import DefaultAvatar from "../../assets/defaultUser.svg"
 
 const UsersComments = ({ userId, comment }) => {
   const [username, setUsername] = useState("");
@@ -34,7 +35,7 @@ const UsersComments = ({ userId, comment }) => {
       <div className="author_con">
         <Link to={`/profile/${username}`} className="img_con">
           <img
-            src={userAvatar}
+            src={userAvatar || DefaultAvatar}
             alt={`${username}'s avatar`}
             className="user-avatar"
           />

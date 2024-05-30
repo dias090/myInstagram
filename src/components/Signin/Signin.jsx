@@ -78,7 +78,7 @@ const Signin = () => {
                     />
                     </div>
                     <div className="input-field">
-                    <input type="submit" value="Signup" />
+                    <input type="submit" value="Sigin" />
                     </div>
                 </div>
                 <div className="col s12 m6 l4 offset-m3 offset-l4 center">

@@ -93,17 +93,17 @@ const Comments = ({
               {post && (
                 <>
                   <img src={post.img} alt="" />
-                  <h5>{post.comment}</h5>
+                  <h5 style={{color:"black"}}>{post.comment}</h5>
                   <div className="icons_container">
                     <i
                       className="material-icons"
-                      style={{ color: isLiked ? "red" : "unset" }}
+                      style={{ color: isLiked ? "red" : "grey" }}
                       onClick={handleLike}
                     >
                       favorite
                     </i>
                     &emsp;
-                    {post.likes ? post.likes.length : 0} likes
+                    <div style={{color:"black"}}>{post.likes ? post.likes.length : 0} likes</div>
                   </div>
                   <form
                     className=""
