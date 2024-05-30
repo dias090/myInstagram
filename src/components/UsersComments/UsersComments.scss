@@ -1,0 +1,44 @@
+.users-comments_container {
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+    .author_con {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        div:nth-child(2){
+            margin-left: 10px;
+            .users_comment{
+                text-wrap: wrap;
+            }
+        }
+
+
+        .img_con {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+            top: 0px !important;
+            transform: translateY(0px);
+            img {
+                width: 150% !important;
+                height: 100% !important;
+                margin-left: -25%;
+            }
+        }
+
+        .username {
+            font-size: 20px;
+            border-bottom: 1px solid black;
+        }
+    }
+    
+}
+  
+  

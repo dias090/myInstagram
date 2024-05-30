@@ -1,0 +1,54 @@
+.search_container {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .bg {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 10;
+    }
+
+    .search {
+        z-index: 99;
+        width: 30%;
+        height: fit-content;
+        max-height: 70vh;
+        background-color: white;
+        padding: 20px 40px;
+
+        .button,
+        .unfollow {
+            display: none;
+        }
+    
+        .userCard{
+            .user_card_element:nth-child(1) {
+                width: 100% !important;
+            }
+        }
+
+        .username_con{
+            p:nth-child(1) {
+                color: var(--bg_color) !important;
+            }
+        }
+
+        
+
+        .con {
+            width: 90%;
+            height: 100%;
+            overflow-y: auto;
+            margin: 0 auto;
+        }
+    }
+}

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../routes/firebase";
+import { auth } from "../../firebase/firebase";
 
 import "./Signin.scss";
+import Loading from "../Loading/Loading";
 
 const Signin = () => {
     const [loading, setLoading] = useState(true);
@@ -22,10 +23,6 @@ const Signin = () => {
             unsubscribe();
         };
     }, []);
-    // if (!email || !password) {
-    //     setError("All fields are required");
-    //     return;
-    // }
 
     const login = async (e) => {
         e.preventDefault();
@@ -47,7 +44,7 @@ const Signin = () => {
     }
 
     if (loading) {
-        return <div>loading...</div>;
+        return <Loading/>;
     }
 
   return (
@@ -66,6 +63,7 @@ const Signin = () => {
                         value={email} 
                         onChange={(e)=>{setEmail(e.target.value)}}
                         required
+                        autoComplete="email"
                     />
                     </div>
                     <div className="input-field">

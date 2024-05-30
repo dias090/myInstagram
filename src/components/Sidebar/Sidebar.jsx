@@ -1,55 +1,115 @@
-import React, { useState, useEffect } from "react";
-import "./Sidebar.scss";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { auth,db } from "../../routes/firebase"; // replace with the correct path to your Firebase configuration file
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const Sidebar = () => {
-  const [darkTheme, setDarkTheme] = useState(false);
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../../firebase/firebase";
+
+import { handleLogout } from "../../functions/handleLogout";
+
+import TextLogoWhite from "../../assets/text-logo-white.svg";
+import TextLogoDark from "../../assets/text-logo-dark.svg";
+import InstagramLogoDark from "../../assets/instagram-logo-dark.svg";
+import InstagramLogoWhite from "../../assets/instagram-logo-white.svg";
+import "./Sidebar.scss";
+
+const Sidebar = ({
+  darkTheme,
+  changeTheme,
+  setIsLoading,
+  toggleAddCard,
+  toggleSearch,
+}) => {
+  const [username, setUsername] = useState("");
+  const userId = auth.currentUser?.uid;
 
   useEffect(() => {
-    const userId = auth.currentUser?.uid;
-
+    setIsLoading(true);
     if (userId) {
       const userDocRef = doc(db, "Users", userId);
-
-      const fetchUserData = async () => {
-        const userDocSnap = await getDoc(userDocRef);
-
-        if (userDocSnap.exists()) {
-          const userData = userDocSnap.data();
-          setDarkTheme(userData.darkTheme);
-        } else {
-          console.log("User document does not exist.");
-        }
-      };
-
-      fetchUserData();
+      getDoc(userDocRef)
+        .then((doc) => {
+          if (doc.exists()) {
+            setUsername(doc.data().userName);
+            setIsLoading(false);
+          } else {
+            console.log("No such document!");
+            setIsLoading(false);
+          }
+        })
+        .catch((error) => {
+          console.log("Error getting document:", error);
+          setIsLoading(false);
+        });
     }
-  }, [auth.currentUser?.uid]);
-  const changeTheme = async () => {
-    const userId = auth.currentUser?.uid;
+    setIsLoading(false);
+  }, [userId]);
+  return (
+    <div className="sidebar_main">
+      <div className="sidebar_container">
+        <div className="sidebar">
+          <ul className="con">
+            <li>
+              <Link to="/" className="logo_text">
+                <img
+                  src={darkTheme ? TextLogoWhite : TextLogoDark}
+                  alt="instagram"
+                />
 
-    if (userId) {
-      const userDocRef = doc(db, "Users", userId);
-
-      await setDoc(userDocRef, { darkTheme: !darkTheme }, { merge: true });
-      setDarkTheme(!darkTheme);
-      window.location.reload();
-    }
-  };
-    return (
-        <div className="sidebar_container" data-theme={darkTheme ? "dark" : "white"}>
-            <div className="sidebar">
-                <button 
-                    onClick={changeTheme} 
-                    className={`btn ${darkTheme ? "white black-text" : "black"}`}
-                >
-                    {darkTheme ? "white" : "dark"}
-                </button>
-
-                </div>
+                <img
+                  src={darkTheme ? InstagramLogoWhite : InstagramLogoDark}
+                  alt="instagram"
+                  className="mobile_logo"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="button">
+                <i className="material-icons left">home</i>
+                Home
+              </Link>
+            </li>
+            <li>
+              <div className="button" onClick={toggleSearch}>
+                <i className="material-icons left">search</i>
+                search
+              </div>
+            </li>
+            <li>
+              <div className="button" onClick={toggleAddCard}>
+                <i className="material-icons left">add_box</i>
+                post
+              </div>
+            </li>
+            <li>
+              <Link
+                to={`/profile/${auth.currentUser?.displayName || username}`}
+                className="button"
+              >
+                <i className="material-icons left">person</i>
+                profile
+              </Link>
+            </li>
+          </ul>
+          <ul className="con">
+            <li>
+              <div onClick={changeTheme} className="button">
+                <i className="material-icons left">
+                  {darkTheme ? "brightness_5" : "dark_mode"}{" "}
+                </i>
+                change the theme
+              </div>
+            </li>
+            <li>
+              <div onClick={() => handleLogout(auth)} className="button">
+                <i className="material-icons left">logout</i>
+                Logout
+              </div>
+            </li>
+          </ul>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default Sidebar;

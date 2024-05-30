@@ -1,0 +1,63 @@
+.Add_Card_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:fixed;
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+
+    .bg {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 99;
+    }
+
+    .Add_Card {
+        z-index: 999;
+        width: 30%;
+        background-color: white;
+        position: relative;
+        padding: 20px 0px;
+        display: block;
+
+        .container {
+            display: block;
+            position: relative;
+        }
+
+        .preview {
+            width: 100% !important;
+            object-fit: cover;
+        }
+        
+        .button_x {
+            width: 35px;
+            height: 35px;
+            border-radius: 35px;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        .special_input::placeholder {
+            color: #888888;
+        }
+        
+    }
+}

@@ -1,0 +1,56 @@
+@media screen and (max-width:1200px){
+    .post_container {
+        width: 90% !important;
+    }
+}
+.post_container {
+    width: 70%;
+    margin: 0 auto;
+    height: fit-content !important;
+    padding: 5px 30px 15px;
+    border-radius: 10px;
+    color: var(--text_color);
+    .button,
+    .unfollow {
+        display: none;
+    }
+
+    .userCard{
+        .user_card_element:nth-child(1) {
+            width: 100% !important;
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .icons_container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px 0px;
+        grid-column-gap: 20px;
+        display: flex;
+        align-items: center;
+        i {
+            cursor: pointer;
+        }
+    }
+
+    .submit_button {
+        position: absolute;
+        right: 5px;
+        bottom: 10px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+}
+.underline {
+    width: 60%;
+    height: 2px;
+    background-color: grey;
+    margin: 0 auto;
+    margin-top: 5%;
+}

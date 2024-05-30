@@ -1,0 +1,70 @@
+.userlist_container {
+    width: 80% !important;
+    height: 100vh;
+    margin: 0px 10%;
+    padding: 10px 0px;
+    display: grid;
+    overflow: auto;
+    position: relative;
+    z-index: 0 !important;
+    
+    div:nth-child(1){
+        z-index: 0;
+    }
+
+    .user_card {
+        width: 100%;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-between;
+
+        .user_card_element {
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .avatar_con {
+                width: 75px;
+                height: 75px;
+                border-radius: 75px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .user_avatar {
+                    width: 150%;
+                    height: 100%;
+                }
+            }
+
+            .username_con {
+                width: fit-content;
+                height: 100%;
+                margin-left: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                p {
+                    font-size: 20px;
+                    color: var(--text_color);
+                }
+
+                p:nth-child(2) {
+                    color: grey !important;
+                }
+            }
+
+            .button {
+                cursor: pointer;
+                font-size: 20px;
+                color: #0f9bf7;
+            }
+
+            .unfollow {
+                color: grey;
+            }
+        }
+    }
+}

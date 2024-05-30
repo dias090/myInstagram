@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
+body:has(.requires-no-scroll) {
+    overflow: hidden;
+}
+
+img {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+i {
+    -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
+}
 
 * {
     margin: 0px;
@@ -9,16 +25,25 @@
 :root {
     --bg_color: black;
     --text_color: white;
+    --logo_text: #262626;
 }
 
 [data-theme="dark"]{
     --bg_color: black;
     --text_color: white;
+    --btn_hover: #191919;
+    --button_color: white;
+    --button_text_color: black;
+    --card_shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.12), 0 1px 5px 0 rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="white"]{
     --bg_color: white;
     --text_color: black;
+    --btn_hover: #f2f2f2;
+    --button_color: black;
+    --button_text_color: white;
+    --card_shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 h1,h2,h3,h4,h5,h6{margin: 0px;}
